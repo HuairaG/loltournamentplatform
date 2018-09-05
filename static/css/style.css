@@ -1,11 +1,11 @@
 html,
 body,
-header,
-#intro {
+.mask,
+.intro {
     height: 100%;
 }
 
-#intro {
+.intro {
     background: url("http://www.lol-wallpapers.com/wp-content/uploads/2017/06/The-Pilgrim-Site-Of-Rakelstake-Ashe-Freljord-HD-Wallpaper-Background-Official-Art-Artwork-League-of-Legends-lol.jpg")no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -13,6 +13,10 @@ header,
     background-size: cover;
 }
 
+li.dropdown:last-child .dropdown-menu {
+  right: 0;
+  left: auto;
+}
 .top-nav-collapse {
   background-color: #24355C;
 }
