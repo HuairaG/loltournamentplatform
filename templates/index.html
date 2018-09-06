@@ -1,94 +1,13 @@
+{% extends "base.html" %}
 {% load staticfiles %}
-<!DOCTYPE html>
-<html lang="en">
 
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>{% block title %}League of Freljord{% endblock %}</title>
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- Bootstrap core CSS -->
-    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
-    <!-- Material Design Bootstrap -->
-    <link href="{% static 'css/mdb.min.css' %}" rel="stylesheet">
-    <!-- Your custom styles (optional) -->
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
-</head>
-
-<body>
-
-    <!-- Start your project here-->
-
-    <!--Main Navigation-->
-    <header>
-        <!--Navbar-->
-        <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
-            <div class="container">
-
-                <!-- Navbar brand -->
-                <a class="navbar-brand" href="#">Navbar</a>
-
-                <!-- Collapse button -->
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav" aria-controls="basicExampleNav"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <!-- Collapsible content -->
-                <div class="collapse navbar-collapse" id="basicExampleNav">
-
-                    <!-- Links -->
-                    <ul class="navbar-nav mr-auto smooth-scroll">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#intro">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#best-features">Features</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#examples">Examples</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#news">Noticias</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#contact">Contact</a>
-                        </li>
-                    </ul>
-                    <!-- Social Icon  -->
-                    <ul class="navbar-nav nav-flex-icons">
-                        <li class="nav-item">
-                            <a class="nav-link"><i class="fa fa-facebook"></i></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link"><i class="fa fa-twitter"></i></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link"><i class="fa fa-instagram"></i></a>
-                        </li>
-                    </ul>
-                    <!-- Links -->
-
-                    <form class="form-inline">
-                        <div class="md-form mt-0">
-                            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-                        </div>
-                    </form>
-                </div>
-                <!-- Collapsible content -->
-
-            </div>
-        </nav>
-        <!--/.Navbar-->
+    {% block content %}
         <!--Mask-->
-        <div id="intro" class="view">
+        <div id="intro" class="intro">
 
             <div class="mask rgba-black-strong">
 
-                <div class="container-fluid d-flex align-items-center justify-content-center h-100">
+                <div class="cover container-fluid d-flex align-items-center justify-content-center h-100">
 
                     <div class="row d-flex justify-content-center text-center">
 
@@ -114,11 +33,6 @@
 
         </div>
         <!--/.Mask-->
-    </header>
-    <!--Main Navigation-->
-
-    <!--Main layout-->
-    <main>
 
         <!--Section: News-->
             <br/>
@@ -177,7 +91,6 @@
                 </div>
                 <!--Grid column-->
 
-
                 <div class="col-md-6">
 
                     <!--Excerpt-->
@@ -193,7 +106,7 @@
                         mas descripcion mas descripcion mas descripcion mas descripcion mas descripcion mas descripcion
                         mas descripcion mas descripcion mas descripcion mas descripcion mas descripcion mas descripcion .</p>
                     <p>by <a><strong>Nombre de admin</strong></a>, 04/09/2018</p>
-                    <a class="btn btn-primary btn-md">seguir leyendo</a>
+                    <a class="btn btn-primary">seguir leyendo</a>
 
                     </div>
                     <!--Grid column-->
@@ -204,37 +117,4 @@
             </section>
             <!--Section: Gallery-->
 
-    </main>
-    <!--Main layout-->
-
-    <!--Footer-->
-    <footer>
-
-    </footer>
-    <!--Footer-->
-
-    <!-- /Start your project here-->
-
-
-
-
-    <!-- SCRIPTS -->
-    <!-- JQuery -->
-    <script type="text/javascript" src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
-    <!-- Bootstrap tooltips -->
-    <script type="text/javascript" src="{% static 'js/popper.min.js' %}"></script>
-    <!-- Bootstrap core JavaScript -->
-    <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
-    <!-- MDB core JavaScript -->
-    <script type="text/javascript" src="{% static 'js/mdb.min.js' %}"></script>
-
-    <!-- Carousel options -->
-<script>
-    $('.carousel').carousel({
-        interval: 600,
-    })
-</script>
-
-</body>
-
-</html>
+            {% endblock %}
