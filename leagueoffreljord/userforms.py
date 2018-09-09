@@ -9,8 +9,12 @@ class UserForm(UserCreationForm):
         fields = [
             'username',
             'email',
+            'password1',
+            'password2',
         ]
         labels = {
             'username': 'Nombre de usuario',
             'email': 'Correo',
+            'password1': 'Contrasena',
+            'password2': 'Confirmar contrasena',
         }
