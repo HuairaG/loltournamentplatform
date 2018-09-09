@@ -50,35 +50,46 @@
                     </ul>
                     <!-- Social Icon  -->
                     <ul class="navbar-nav nav-flex-icons">
-
+                        <li class="nav-item">
+                            <a class="nav-link"><i class="fa fa-facebook"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link"><i class="fa fa-twitter"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link"><i class="fa fa-instagram"></i></a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        {% if not user.is_authenticated %}
                         <!-- register -->
                         <li class="nav-item dropdown">
                             <a  class="nav-link dropdown-toggle" data-toggle="dropdown">Register <span class="caret"></span></a>
-                            <ul class="dropdown-menu dropdown-lr animated flipInX" role="menu">
+                            <ul class="dropdown-menu dropdown-menu-right animated flipInX" role="menu">
                                 <div class="col-lg-12">
                                     <div class="text-center"><h3><b>Register</b></h3></div>
-    								<form id="ajax-register-form" action="http://phpoll.com/register/process" method="post" role="form" autocomplete="off">
-    									<div class="form-group">
-    										<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
-    									</div>
-    									<div class="form-group">
-    										<input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="">
-    									</div>
-    									<div class="form-group">
-    										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
-    									</div>
-    									<div class="form-group">
-    										<input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password">
-    									</div>
-    									<div class="form-group">
-    										<div class="row">
-    											<div class="col-xs-6 col-xs-offset-3">
-    												<input type="submit" name="register-submit" id="register-submit" tabindex="4" class=" btn btn-info btn-sm" value="Register Now">
-    											</div>
-    										</div>
-    									</div>
+                                    <form id="ajax-register-form" action="http://phpoll.com/register/process" method="post" role="form" autocomplete="off">
+                                        <div class="form-group">
+                                            <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password">
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-xs-6 col-xs-offset-3">
+                                                    <input type="submit" name="register-submit" id="register-submit" tabindex="4" class=" btn btn-info btn-sm" value="Register Now">
+                                                </div>
+                                            </div>
+                                        </div>
                                         <input type="hidden" class="hide" name="token" id="token" >
-    								</form>
+                                    </form>
                                 </div>
                             </ul>
                         </li>
@@ -86,7 +97,7 @@
                         <!-- login -->
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" data-toggle="dropdown">Log In <span class="caret"></span></a>
-                            <ul class="dropdown-menu dropdown-lr animated slideInRight pull-right" role="menu">
+                            <ul class="dropdown-menu dropdown-menu-right animated slideInRight pull-right" role="menu">
                                 <div class="col-lg-12">
                                     <div class="text-center"><h3><b>Log In</b></h3></div>
                                     <form id="ajax-login-form" action="http://phpoll.com/login/process" method="post" role="form" autocomplete="off">
@@ -126,15 +137,12 @@
                                 </div>
                             </ul>
                         </li>
+                        {% else %}
+                        <!-- logout -->
                         <li class="nav-item">
-                            <a class="nav-link"><i class="fa fa-facebook"></i></a>
+                            <a class="nav-link" href="#logout">Cerrar sesion</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link"><i class="fa fa-twitter"></i></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link"><i class="fa fa-instagram"></i></a>
-                        </li>
+                        {% endif %}
                     </ul>
                     <!-- Links -->
 
@@ -145,9 +153,89 @@
         </nav>
             {% block content %}
             {% endblock %}
-        <footer>
-            <h1>hola soy un footer</h1>
-        </footer>
+
+            <!-- Footer -->
+    <footer class="page-footer font-small pt-4" style="background-color: #24355C">
+
+    <!-- Footer Links -->
+    <div class="container-fluid text-center text-md-left">
+
+      <!-- Grid row -->
+      <div class="row">
+
+        <!-- Grid column -->
+        <div class="col-md-6 mt-md-0 mt-3">
+
+          <!-- Content -->
+          <h5 class="text-uppercase">titulo</h5>
+          <p>Aca puede ir una descripcion de la pagina o algo que haya que aclarar.</p>
+
+        </div>
+        <!-- Grid column -->
+
+        <hr class="clearfix w-100 d-md-none pb-3">
+
+        <!-- Grid column -->
+        <div class="col-md-3 mb-md-0 mb-3">
+
+            <!-- Links -->
+            <h5 class="text-uppercase">Links</h5>
+
+            <ul class="list-unstyled">
+              <li>
+                <a href="#!">Link 1</a>
+              </li>
+              <li>
+                <a href="#!">Link 2</a>
+              </li>
+              <li>
+                <a href="#!">Link 3</a>
+              </li>
+              <li>
+                <a href="#!">Link 4</a>
+              </li>
+            </ul>
+
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-3 mb-md-0 mb-3">
+
+            <!-- Links -->
+            <h5 class="text-uppercase">Links</h5>
+
+            <ul class="list-unstyled">
+              <li>
+                <a href="#!">Link 1</a>
+              </li>
+              <li>
+                <a href="#!">Link 2</a>
+              </li>
+              <li>
+                <a href="#!">Link 3</a>
+              </li>
+              <li>
+                <a href="#!">Link 4</a>
+              </li>
+            </ul>
+
+          </div>
+          <!-- Grid column -->
+
+      </div>
+      <!-- Grid row -->
+
+    </div>
+    <!-- Footer Links -->
+
+    <!-- Copyright -->
+      <div class="footer-copyright text-center py-3">© 2018 Copyright:
+        <a href="https:youtube.com"> xvideos.com</a>
+      </div>
+      <!-- Copyright -->
+
+</footer>
     <!-- SCRIPTS -->
     <!-- JQuery -->
     <script type="text/javascript" src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
