@@ -57,18 +57,19 @@
                             <ul class="dropdown-menu dropdown-lr animated flipInX" role="menu">
                                 <div class="col-lg-12">
                                     <div class="text-center"><h3><b>Register</b></h3></div>
-    								<form id="ajax-register-form" action="http://phpoll.com/register/process" method="post" role="form" autocomplete="off">
+    								<form id="ajax-register-form" action="{% url 'api:home' %}" method="post" role="form" autocomplete="off">
+                                        {% csrf_token %}
     									<div class="form-group">
-    										<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
+    										<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" required="required"  value="">
     									</div>
     									<div class="form-group">
-    										<input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="">
+    										<input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" required="required" value="">
     									</div>
     									<div class="form-group">
-    										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+    										<input type="password" name="password1" id="password1" tabindex="2" class="form-control" placeholder="Password" required="required">
     									</div>
     									<div class="form-group">
-    										<input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password">
+    										<input type="password" name="password2" id="password2" tabindex="2" class="form-control" placeholder="Confirm Password" required="required" >
     									</div>
     									<div class="form-group">
     										<div class="row">
@@ -89,15 +90,16 @@
                             <ul class="dropdown-menu dropdown-lr animated slideInRight pull-right" role="menu">
                                 <div class="col-lg-12">
                                     <div class="text-center"><h3><b>Log In</b></h3></div>
-                                    <form id="ajax-login-form" action="http://phpoll.com/login/process" method="post" role="form" autocomplete="off">
+                                    <form id="ajax-login-form" action="{% url 'login' %}" method="post" role="form" autocomplete="off">
+                                        {% csrf_token %}
                                         <div class="form-group">
                                             <label for="username">Username</label>
-                                            <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="" autocomplete="off">
+                                            <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="" autocomplete="off" required="required">
                                         </div>
 
                                         <div class="form-group">
                                             <label for="password">Password</label>
-                                            <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password" autocomplete="off">
+                                            <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password" autocomplete="off" required="required">
                                         </div>
 
                                         <div class="form-group">
