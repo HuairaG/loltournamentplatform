@@ -16,6 +16,7 @@ body,
 li.dropdown:last-child .dropdown-menu {
   right: 0;
   left: auto;
+  margin-right:-10px;
 }
 .top-nav-collapse {
   background-color: #24355C;
@@ -29,4 +30,10 @@ li.dropdown:last-child .dropdown-menu {
   .navbar:not(.top-nav-collapse) {
     background-color: #24355C;
   }
+}
+
+#nav li:hover ul{
+    left:auto;
+    right:0;
+    margin-right:-10px;
 }
