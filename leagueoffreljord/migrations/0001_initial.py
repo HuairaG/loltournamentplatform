@@ -31,7 +31,7 @@ class Migration(migrations.Migration):
                 ('name', models.CharField(max_length=80)),
                 ('last_name', models.CharField(max_length=80)),
                 ('dni', models.PositiveIntegerField()),
-                ('picture', models.ImageField(blank=True, null=True, upload_to=leagueoffreljord.models.upload_location)),
+                ('picture', models.ImageField(blank=True, null=True, upload_to=leagueoffreljord.usermodels.upload_location)),
                 ('league', models.CharField(max_length=80)),
                 ('nickname', models.OneToOneField(on_delete=django.db.models.deletion.PROTECT, to='leagueoffreljord.Nickname')),
                 ('user', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),

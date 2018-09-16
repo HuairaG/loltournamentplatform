@@ -13,5 +13,4 @@ def home(request):
             return render(request, 'index.html')
     else:
         form = UserForm()
-        print('get')
         return render(request, 'index.html', {'form': form})
