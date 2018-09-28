@@ -21,7 +21,8 @@ class ProfileView(View):
     template_name = 'profile/show.html'
 
     def get(self, request):
-        pass
+        form = ProfileForm(request.GET)
+        return render(request, self.template_name)
 
     def post(self, request):
         form = ProfileForm(request.POST)
