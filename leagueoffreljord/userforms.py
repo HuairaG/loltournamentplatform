@@ -25,7 +25,7 @@ class ProfileForm(forms.ModelForm):
 
     class Meta:
         model = Profile
-        exclude = ('user', 'league', 'nickname')
+        exclude = ('user',)
         fields = '__all__'
 
     def __init__(self, *args, **kwargs):
