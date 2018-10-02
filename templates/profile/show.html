@@ -10,9 +10,9 @@
 
                 <div class="container">
                   <div class="row">
-                    <div class="col-md-6">
-                        <img src="{{ img }}"  class="img-thumbnail z-depth-1 rounded-circle" alt="rgba-blue-strong" style="width: 400px; height:400px">
-                    </div>
+                        <div class="col-md-6">
+                            <img src="{{ img }}"  class="img-thumbnail z-depth-1 rounded-circle" alt="rgba-blue-strong" style="width: 400px; height:400px">
+                        </div>
                     <div class="col-md-6">
                       <blockquote>
                         <h2 class = "display-3 font-weight-bold white-text">Perfil de {{ user.username }}</h2>
@@ -62,8 +62,8 @@
  <section class="stadistic cover container-fluid d-flex align-items-center justify-content-center h-100" id="stadistics" style="background-color:#141d35 ">
 
 
-        <form class="text-center border border-light p-5" style = "background-color:#24355c">
-
+        <form action="{% url 'api:profile' %}" method="post" class="text-center border border-light p-5" style = "background-color:#24355c">
+            {% csrf_token %}
             <p class="h4 mb-4 white-text">Vincula tu cuenta!</p>
 
             <p class="white-text">Oops... aun no nos dijiste tu nombre de invocador.</p>
@@ -73,7 +73,7 @@
             </p>
 
             <!-- Name -->
-            <input type="text" class="form-control mb-4" placeholder="Nombre de invocador">
+            <input type="text" name="nickname" id="nickname" class="form-control mb-4" placeholder="Nombre de invocador">
 
 
             <!-- submit button -->

@@ -5,8 +5,9 @@ def upload_location(instance, filename):
     return "%s/%s" %(instance.user.id, filename)
 
 class LolProfile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     nickname = models.CharField(max_length=48)
+    league = models.CharField(max_length=48)
     active = models.BooleanField(default=True)
 
 class Profile(models.Model):

@@ -37,3 +37,20 @@ class ProfileForm(forms.ModelForm):
 
     def save(self):
         cleaned_data = super(ProfileForm, self).clean()
+
+class LolProfileForm(forms.ModelForm):
+
+    class Meta:
+        model = LolProfile
+        exclude = ('user', 'active', 'league',)
+        fields = '__all__'
+
+    def __init__(self, *args, **kwargs):
+        super(LolProfileForm, self).__init__(*args, **kwargs)
+
+    def clean(self):
+        cleaned_data = super(LolProfileForm, self).clean()
+        return cleaned_data
+
+    def save(self):
+        cleaned_data = super(LolProfileForm, self).clean()
