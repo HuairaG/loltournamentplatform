@@ -23,11 +23,17 @@ class ProfileView(View):
             profile = Profile.objects.get(user=request.user)
         except ObjectDoesNotExist:
             profile = None
+        if profile is None:
+            img = "https://2.bp.blogspot.com/-lHLm8cAZH6U/WO56Z0mflyI/AAAAAAAAiNM/tOUpYVq5L8MLymkLOOJ2TX_Fr9aqwdfWwCLcB/s1600/8fc65aa22d388770.jpg"
+        else:
+            img = profile.picture.url
         try:
             lol_profile = LolProfile.objects.get(user=request.user)
         except ObjectDoesNotExist:
             lol_profile = None
+        print(img)
         context = {
+            'img': img,
             'profile_form': profile_form,
             #'lol_profile_form': lol_profile_form,
             'profile': profile,

@@ -10,15 +10,9 @@
 
                 <div class="container">
                   <div class="row">
-                    {% if profile == None  %}
-                        <div class="col-md-6">
-                            <img src="https://2.bp.blogspot.com/-lHLm8cAZH6U/WO56Z0mflyI/AAAAAAAAiNM/tOUpYVq5L8MLymkLOOJ2TX_Fr9aqwdfWwCLcB/s1600/8fc65aa22d388770.jpg"  class="img-thumbnail z-depth-1 rounded-circle" alt="rgba-blue-strong" style="width: 400px; height:400px">
-                        </div>
-                    {% else %}
-                        <div class="col-md-6">
-                            <img src="{{profile.picture}}"  class="img-thumbnail z-depth-1 rounded-circle" alt="rgba-blue-strong" style="width: 400px; height:400px">
-                        </div>
-                    {% endif %}
+                    <div class="col-md-6">
+                        <img src="{{ img }}"  class="img-thumbnail z-depth-1 rounded-circle" alt="rgba-blue-strong" style="width: 400px; height:400px">
+                    </div>
                     <div class="col-md-6">
                       <blockquote>
                         <h2 class = "display-3 font-weight-bold white-text">Perfil de {{ user.username }}</h2>

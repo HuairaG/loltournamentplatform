@@ -16,9 +16,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth.views import LoginView, LogoutView
+from django.conf import settings
+from django.conf.urls.static import static
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('leagueoffreljord.urls', namespace='api')),
     path('login/', LoginView.as_view(), name='login'),
     path('logout/', LogoutView.as_view(), name='logout')
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, dicument_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+# IMPORTANTE: esto no puede quedar asi en produccion!
+# VER: https://docs.djangoproject.com/en/2.1/howto/static-files/
