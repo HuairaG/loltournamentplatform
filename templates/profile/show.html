@@ -20,29 +20,26 @@
                         {% if profile == None %}
                             <form action="{% url 'api:profile' %}" method="post" role="form" autocomplete="off" enctype="multipart/form-data">
                                 {% csrf_token %}
-                                <div class="form-group">
-                                    <label for="name"><p class = "white-text">Nombre:</p></label>
-                                    <input type="text" name="name" id="name" tabindex="1" class="form-control" placeholder="Nombre" required="required"  value="">
-                                </div>
-                                <div class="form-group">
-                                    <label for="last_name"><p class = "white-text">Apellido:</p></label>
-                                    <input type="text" name="last_name" id="last_name" tabindex="1" class="form-control" placeholder="Apellido" required="required"  value="">
-                                </div>
-                                <div>
-                                    <label for="dni"><p class = "white-text">DNI:</p></label>
-                                    <input type="number" min="0" name="dni" id="dni" tabindex="1" class="form-control" placeholder="DNI" required="required"  value="">
-                                </div>
-                                <div class="form-group">
-                                    <label for="picture"><p class = "white-text">Foto de perfil:</p></label>
-                                    <input type="file" name="picture" id="picture" class="form-control" required="required" accept="image/png, image/jpeg" value="">
-                                </div>
-                                <div class="row">
-                                  <div class="col-xs-6 col-xs-offset-3">
+
+                                    <input type="text" name="name" id="name" tabindex="1" class="form-control mb-4" placeholder="Nombre" required="required"  value="">
+
+                                    <input type="text" name="last_name" id="last_name" tabindex="1" class="form-control mb-4" placeholder="Apellido" required="required"  value="">
+
+                                    <input type="number" min="0" name="dni" id="dni" tabindex="1" class="form-control mb-4" placeholder="DNI" required="required"  value="">
+
+                                    <div class="input-group mb-3">
+                                      <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroupFileAddon01">imagen de perfil</span>
+                                      </div>
+                                      <div class="custom-file">
+                                        <input type="file" name="picture" id="picture" class="custom-file-input" id="inputGroupFile01" required="required" accept="image/png, image/jpeg" value="" aria-describedby="inputGroupFileAddon01">
+                                        <label class="custom-file-label" for="inputGroupFile01">Elige la imagen</label>
+                                      </div>
+                                    </div>
+
                                     <input type="submit" name="profile-submit" id="profile-submit" tabindex="4" class=" btn btn-info btn-sm" value="Actualizar perfil">
-                                  </div>
-                                </div>
-                              </div>
                             </form>
+                        </div>
 
                             <br><br>
                         {% else %}
@@ -50,8 +47,8 @@
                                 Nombre: {{profile.name}}<br>
                                 Apellido: {{profile.last_name}}<br><br>
                             </p>
+                            <a type="button" href="#stadistics" class="btn btn-outline-white">Mira tus estadisticas de League of Legends<i class="fa fa-book ml-2"></i></a>
                         {% endif %}
-                      <a type="button" href="#stadistics" class="btn btn-outline-white">Mira tus estadisticas de League of Legends<i class="fa fa-book ml-2"></i></a>
                     </div>
                   </div>
                 </div>
@@ -59,9 +56,9 @@
         </div>
     </div>
  </div>
- <section class="stadistic cover container-fluid d-flex align-items-center justify-content-center h-100" id="stadistics" style="background-color:#141d35 ">
 
-
+     {% if lol_profile == None %}
+     <section class="stadistic cover container-fluid d-flex align-items-center justify-content-center h-100" id="stadistics" style="background-color:#141d35 ">
         <form action="{% url 'api:profile' %}" method="post" class="text-center border border-light p-5" style = "background-color:#24355c">
             {% csrf_token %}
             <p class="h4 mb-4 white-text">Vincula tu cuenta!</p>
@@ -80,7 +77,38 @@
             <button class="btn btn-info btn-block" type="submit">Vincular Cuenta</button>
 
         </form>
+    </section>
+    {% else %}
+        <!-- lol profile -->
+ <section class="stadistic cover container-fluid   justify-content-center h-100" id="stadistics" style="background-color:#141d35; padding: 30px; ">
+
+        <div class="card card-body " style="background-color:#0c1221;">
+            <div class="profile-head">
+                <div class="row">
+                    <div class="col-md-3">
+                        <img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/3/36/ChallengerBadge.png/revision/latest?cb=20150418014914" class="img-responsive" />
+                        <h6 class="white-text justify-content-center align-items-center">{{ lol_profile.nickname }} | {{ lol_profile.league }}</h6>
+                    </div>
 
 
- </section>
+                    <div class="col-md-7">
+                        <h5 class="white-text">{{ lol_profile.nickname }}</h5>
+                        <ul class="white-text">
+                            <p> Nombre de Invocador: {{ lol_profile.nickname }} </p>
+                            <p> Liga: {{ lol_profile.league }} </p>
+
+                        </ul>
+
+
+                    </div>
+            </div><!--col-md-8 col-sm-8 col-xs-12 close-->
+
+
+
+
+            </div><!--profile-head close-->
+        </div><!--container close-->
+    </section>
+    {% endif %}
+
     {% endblock %}
