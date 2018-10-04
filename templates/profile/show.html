@@ -86,8 +86,24 @@
             <div class="profile-head">
                 <div class="row">
                     <div class="col-md-3">
-                        <img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/3/36/ChallengerBadge.png/revision/latest?cb=20150418014914" class="img-responsive" />
-                        <h6 class="white-text justify-content-center align-items-center">{{ lol_profile.nickname }} | {{ lol_profile.league }}</h6>
+                        {% if lol_profile.league == "CHALLENGER" %}
+                        <img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/3/36/ChallengerBadge.png/revision/latest?cb=20150418014914" class="img-responsivemx-auto d-block" style="width:250px; height:200px"/>
+                        {% elif lol_profile.league == "MASTER" %}
+                        <img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/d/d2/MasterBadge.png/revision/latest?cb=20150418014845" class="img-responsivemx-auto d-block" style="width:250px; height:200px"/>
+                        {% elif lol_profile.league == "DIAMOND" %}
+                        <img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/0/03/DiamondBadge.png/revision/latest?cb=20130928162320" class="img-responsive mx-auto d-block" style="width:250px; height:200px"/>
+                        {% elif lol_profile.league == "PLATINUM" %}
+                        <img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/5/5f/PlatinumBadgeSeason2.png/revision/latest?cb=20130928162240" class="img-responsivemx-auto d-block" style="width:250px; height:200px"/>
+                        {% elif lol_profile.league == "GOLD" %}
+                        <img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/7/77/GoldBadgeSeason2.png/revision/latest?cb=20130928162204" class="img-responsivemx-auto d-block" style="width:250px; height:200px"/>
+                        {% elif lol_profile.league == "SILVER" %}
+                        <img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/3/3f/SilverBadgeSeason2.png/revision/latest?cb=20130928162033" class="img-responsivemx-auto d-block" style="width:250px; height:200px"/>
+                        {% elif lol_profile.league == "BRONZE" %}
+                        <img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/b/b4/BronzeBadgeSeason2.png/revision/latest?cb=20130928162132" class="img-responsivemx-auto d-block" style="width:250px; height:200px"/>
+                        {% else %}
+                        <img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/8/89/UnrankedBadge.png/revision/latest?cb=20180426135147" class="img-responsivemx-auto d-block" style="width:250px; height:200px"/>
+                        {% endif %}
+                        <h6 class="white-text justify-content-center text-center">{{ lol_profile.nickname }} | {{ lol_profile.league }} {{ lol_profile.division }}</h6>
                     </div>
 
 
@@ -96,7 +112,7 @@
                         <ul class="white-text">
                             <p> Nombre de Invocador: {{ lol_profile.nickname }} </p>
                             <p> Liga: {{ lol_profile.league }} </p>
-
+                            <p> Division: {{ lol_profile.division }} </p>
                         </ul>
 
 
