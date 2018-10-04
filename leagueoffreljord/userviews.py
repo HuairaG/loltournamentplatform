@@ -65,20 +65,22 @@ class ProfileView(View):
         else:
             img = profile.picture.url
         if lol_profile_form.is_valid():
+            league = 'Unranked'
+            division = ''
             cleaned_data = lol_profile_form.clean()
             api = RiotAPI(Consts.KEY)
             summoner = api.get_summoner_by_name(cleaned_data['nickname'])
             league_data = api.get_league_by_id(summoner['id'])
-            print(league_data)
             for queue_data in league_data:
-                print(queue_data)
                 if queue_data['queueType'] == Consts.QUEUE['solo']:
-                    league = queue_data['tier'] + ' ' + queue_data['rank']
+                    league = queue_data['tier']
+                    division = queue_data['rank']
                     print(league)
             lol_profile = LolProfile(
                 user=request.user,
                 nickname=cleaned_data['nickname'],
                 league=league,
+                division=division,
                 active=True
             )
             lol_profile.save()

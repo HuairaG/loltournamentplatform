@@ -8,9 +8,9 @@ def home(request):
     if request.method == 'POST':
         form = UserForm(request.POST)
         if form.is_valid():
-            form.save()
+            i = form.save()
             messages.success(request, 'Cuenta creada exitosamente.')
             return render(request, 'index.html')
-    else:
-        form = UserForm()
-        return render(request, 'index.html', {'form': form})
+        messages.error(request, 'La cuenta ya existe o el formulario es invalido.')
+    form = UserForm()
+    return render(request, 'index.html', {'form': form})

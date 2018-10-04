@@ -42,7 +42,7 @@ class LolProfileForm(forms.ModelForm):
 
     class Meta:
         model = LolProfile
-        exclude = ('user', 'active', 'league',)
+        exclude = ('user', 'active', 'league', 'division')
         fields = '__all__'
 
     def __init__(self, *args, **kwargs):

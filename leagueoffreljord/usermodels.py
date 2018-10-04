@@ -8,6 +8,7 @@ class LolProfile(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     nickname = models.CharField(max_length=48)
     league = models.CharField(max_length=48)
+    division = models.CharField(max_length=48, default='')
     active = models.BooleanField(default=True)
 
 class Profile(models.Model):
