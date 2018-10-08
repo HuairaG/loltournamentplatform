@@ -11,6 +11,6 @@ def home(request):
             i = form.save()
             messages.success(request, 'Cuenta creada exitosamente.')
             return render(request, 'index.html')
-        messages.error(request, 'La cuenta ya existe o el formulario es invalido.')
+        messages.error(request, 'La cuenta ya existe o el formulario es invalido.', extra_tags='register-error')
     form = UserForm()
     return render(request, 'index.html', {'form': form})

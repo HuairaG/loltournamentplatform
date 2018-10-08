@@ -156,6 +156,79 @@
 
             </div>
         </nav>
+
+        {% if messages %}
+        {% for message in messages %}
+            {% if message.extra_tags == "register-error" %}
+
+            <!-- Central Modal Medium Danger -->
+                <div class="modal fade" id="modalMessage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-notify modal-danger" role="document">
+                    <!--Content-->
+                    <div class="modal-content">
+                        <!--Header-->
+                        <div class="modal-header">
+                            <p class="heading lead">Error al resgistrarse!</p>
+
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true" class="white-text">&times;</span>
+                            </button>
+                        </div>
+
+                        <!--Body-->
+                        <div class="modal-body">
+                            <div class="text-center">
+                                <i class="fa fa-exclamation-triangle fa-4x mb-3 animated rotateIn"></i>
+                                <p>{{message}}</p>
+                            </div>
+                        </div>
+
+                        <!--Footer-->
+                        <div class="modal-footer justify-content-center">
+                            <a type="button" class="btn btn-outline-danger waves-effect" data-dismiss="modal">Seguir!</a>
+                        </div>
+                    </div>
+                    <!--/.Content-->
+                </div>
+                </div>
+            <!-- Central Modal Medium Danger-->
+
+
+            {% else %}
+        <!-- Central Modal Medium Success -->
+            <div class="modal fade" id="modalMessage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-notify modal-success" role="document">
+                <!--Content-->
+                <div class="modal-content">
+                    <!--Header-->
+                    <div class="modal-header">
+                        <p class="heading lead">&Eacute;xito!</p>
+
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true" class="white-text">&times;</span>
+                        </button>
+                    </div>
+
+                    <!--Body-->
+                    <div class="modal-body">
+                        <div class="text-center">
+                            <i class="fa fa-check fa-4x mb-3 animated rotateIn"></i>
+                            <p>{{message}}.</p>
+                        </div>
+                    </div>
+
+                    <!--Footer-->
+                    <div class="modal-footer justify-content-center">
+                        <a type="button" class="btn btn-outline-success waves-effect" data-dismiss="modal">Listo!</a>
+                    </div>
+                </div>
+                <!--/.Content-->
+            </div>
+            </div>
+        <!-- Central Modal Medium Success-->
+            {% endif %}
+        {% endfor %}
+        {% endif %}
             {% block content %}
             {% endblock %}
 
@@ -254,4 +327,14 @@
 
 
 </body>
+
+
+<script type="text/javascript">
+$(document).ready(function () {
+
+    $('#modalMessage').modal('show');
+
+});
+</script>
+
 </html>
