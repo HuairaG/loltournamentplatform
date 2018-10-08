@@ -8,6 +8,8 @@ from leagueoffreljord.userforms import *
 from django.core.exceptions import ObjectDoesNotExist
 from .riotAPI import RiotAPI
 import leagueoffreljord.riotConstants as Consts
+from django.utils.decorators import method_decorator
+from django.contrib.auth.decorators import login_required
 
 class RegistroUsuario(CreateView):
     model = User
@@ -19,6 +21,7 @@ class RegistroUsuario(CreateView):
 class ProfileView(View):
     template_name = 'profile/show.html'
 
+    @method_decorator(login_required(login_url='api:home', redirect_field_name='api:profile'))
     def get(self, request):
         profile_form = ProfileForm()
         try:
@@ -42,6 +45,7 @@ class ProfileView(View):
         }
         return render(request, self.template_name, context)
 
+    @method_decorator(login_required(login_url='api:home', redirect_field_name='api:profile'))
     def post(self, request):
         profile_form = ProfileForm(request.POST, request.FILES)
         lol_profile_form = LolProfileForm(request.POST)

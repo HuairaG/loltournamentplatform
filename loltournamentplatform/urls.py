@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.auth.views import LoginView, LogoutView, PasswordResetView, PasswordResetDoneView, PasswordResetConfirmView, PasswordResetCompleteView, PasswordChangeView, PasswordChangeDoneView
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -23,7 +23,13 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('leagueoffreljord.urls', namespace='api')),
     path('login/', LoginView.as_view(), name='login'),
-    path('logout/', LogoutView.as_view(), name='logout')
+    path('logout/', LogoutView.as_view(), name='logout'),
+    path('password_reset/', PasswordResetView.as_view(), name='password_reset'),
+    path('reset/<uidb64>/<token>/', PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
+    path('password_reset_done/', PasswordResetDoneView.as_view(), name='password_reset_done'),
+    path('password_reset_complete/', PasswordResetCompleteView.as_view(), name='password_reset_complete'),
+    path('password_change/', PasswordChangeView.as_view(), name='password_change'),
+    path('password_change_done/', PasswordChangeDoneView.as_view(), name='password_change_done'),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, dicument_root=settings.STATIC_ROOT)
