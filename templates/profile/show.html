@@ -1,0 +1,130 @@
+{% extends "base.html" %}
+
+    {% block content %}
+    <div class="intro profile" >
+
+        <div class="mask rgba-black-strong">
+
+            <div class="cover container-fluid d-flex align-items-center justify-content-center h-100" >
+
+
+                <div class="container">
+                  <div class="row">
+                        <div class="col-md-6">
+                            <img src="{{ img }}"  class="img-thumbnail z-depth-1 rounded-circle" alt="rgba-blue-strong" style="width: 400px; height:400px">
+                        </div>
+                    <div class="col-md-6">
+                      <blockquote>
+                        <h2 class = "display-3 font-weight-bold white-text">Perfil de {{ user.username }}</h2>
+                      </blockquote>
+                        {% if profile == None %}
+                            <form action="{% url 'api:profile' %}" method="post" role="form" autocomplete="off" enctype="multipart/form-data">
+                                {% csrf_token %}
+
+                                    <input type="text" name="name" id="name" tabindex="1" class="form-control mb-4" placeholder="Nombre" required="required"  value="">
+
+                                    <input type="text" name="last_name" id="last_name" tabindex="1" class="form-control mb-4" placeholder="Apellido" required="required"  value="">
+
+                                    <input type="number" min="0" name="dni" id="dni" tabindex="1" class="form-control mb-4" placeholder="DNI" required="required"  value="">
+
+                                    <div class="input-group mb-3">
+                                      <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroupFileAddon01">imagen de perfil</span>
+                                      </div>
+                                      <div class="custom-file">
+                                        <input type="file" name="picture" id="picture" class="custom-file-input" id="inputGroupFile01" required="required" accept="image/png, image/jpeg" value="" aria-describedby="inputGroupFileAddon01">
+                                        <label class="custom-file-label" for="inputGroupFile01">Elige la imagen</label>
+                                      </div>
+                                    </div>
+
+                                    <input type="submit" name="profile-submit" id="profile-submit" tabindex="4" class=" btn btn-info btn-sm" value="Actualizar perfil">
+                            </form>
+                        </div>
+
+                            <br><br>
+                        {% else %}
+                            <p class = "white-text">
+                                Nombre: {{profile.name}}<br>
+                                Apellido: {{profile.last_name}}<br><br>
+                            </p>
+                            <a type="button" href="#stadistics" class="btn btn-outline-white">Mira tus estadisticas de League of Legends<i class="fa fa-book ml-2"></i></a>
+                        {% endif %}
+                    </div>
+                  </div>
+                </div>
+
+        </div>
+    </div>
+ </div>
+
+     {% if lol_profile == None %}
+     <section class="stadistic cover container-fluid d-flex align-items-center justify-content-center h-100" id="stadistics" style="background-color:#141d35 ">
+        <form action="{% url 'api:profile' %}" method="post" class="text-center border border-light p-5" style = "background-color:#24355c">
+            {% csrf_token %}
+            <p class="h4 mb-4 white-text">Vincula tu cuenta!</p>
+
+            <p class="white-text">Oops... aun no nos dijiste tu nombre de invocador.</p>
+
+            <p class="white-text">
+                Para participar de torneos y ver estadisticas, coso.
+            </p>
+
+            <!-- Name -->
+            <input type="text" name="nickname" id="nickname" class="form-control mb-4" placeholder="Nombre de invocador">
+
+
+            <!-- submit button -->
+            <button class="btn btn-info btn-block" type="submit">Vincular Cuenta</button>
+
+        </form>
+    </section>
+    {% else %}
+        <!-- lol profile -->
+ <section class="stadistic cover container-fluid   justify-content-center h-100" id="stadistics" style="background-color:#141d35; padding: 30px; ">
+
+        <div class="card card-body " style="background-color:#0c1221;">
+            <div class="profile-head">
+                <div class="row">
+                    <div class="col-md-3">
+                        {% if lol_profile.league == "CHALLENGER" %}
+                        <img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/3/36/ChallengerBadge.png/revision/latest?cb=20150418014914" class="img-responsivemx-auto d-block" style="width:250px; height:200px"/>
+                        {% elif lol_profile.league == "MASTER" %}
+                        <img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/d/d2/MasterBadge.png/revision/latest?cb=20150418014845" class="img-responsivemx-auto d-block" style="width:250px; height:200px"/>
+                        {% elif lol_profile.league == "DIAMOND" %}
+                        <img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/0/03/DiamondBadge.png/revision/latest?cb=20130928162320" class="img-responsive mx-auto d-block" style="width:250px; height:200px"/>
+                        {% elif lol_profile.league == "PLATINUM" %}
+                        <img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/5/5f/PlatinumBadgeSeason2.png/revision/latest?cb=20130928162240" class="img-responsivemx-auto d-block" style="width:250px; height:200px"/>
+                        {% elif lol_profile.league == "GOLD" %}
+                        <img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/7/77/GoldBadgeSeason2.png/revision/latest?cb=20130928162204" class="img-responsivemx-auto d-block" style="width:250px; height:200px"/>
+                        {% elif lol_profile.league == "SILVER" %}
+                        <img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/3/3f/SilverBadgeSeason2.png/revision/latest?cb=20130928162033" class="img-responsivemx-auto d-block" style="width:250px; height:200px"/>
+                        {% elif lol_profile.league == "BRONZE" %}
+                        <img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/b/b4/BronzeBadgeSeason2.png/revision/latest?cb=20130928162132" class="img-responsivemx-auto d-block" style="width:250px; height:200px"/>
+                        {% else %}
+                        <img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/8/89/UnrankedBadge.png/revision/latest?cb=20180426135147" class="img-responsivemx-auto d-block" style="width:250px; height:200px"/>
+                        {% endif %}
+                        <h6 class="white-text justify-content-center text-center">{{ lol_profile.nickname }} | {{ lol_profile.league }} {{ lol_profile.division }}</h6>
+                    </div>
+
+
+                    <div class="col-md-7">
+                        <h5 class="white-text">{{ lol_profile.nickname }}</h5>
+                        <ul class="white-text">
+                            <p> Nombre de Invocador: {{ lol_profile.nickname }} </p>
+                            <p> Liga: {{ lol_profile.league }} </p>
+                            <p> Division: {{ lol_profile.division }} </p>
+                        </ul>
+
+
+                    </div>
+            </div><!--col-md-8 col-sm-8 col-xs-12 close-->
+
+
+
+
+            </div><!--profile-head close-->
+        </div><!--container close-->
+    </section>
+    {% endif %}
+
+    {% endblock %}

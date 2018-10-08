@@ -13,6 +13,11 @@ body,
     background-size: cover;
 }
 
+.profile {
+    background: url("http://www.lol-wallpapers.com/wp-content/uploads/2017/02/Blood-Moon-Talon-Splash-Art-HD-4k-6k-Wallpaper-Background-Official-Art-Artwork-League-of-Legends-lol-2.jpg")no-repeat center center fixed;
+
+}
+
 li.dropdown:last-child .dropdown-menu {
   right: 0;
   left: auto;
