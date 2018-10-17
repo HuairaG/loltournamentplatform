@@ -47,7 +47,8 @@
                                 Nombre: {{profile.name}}<br>
                                 Apellido: {{profile.last_name}}<br><br>
                             </p>
-                            <a type="button" href="#stadistics" class="btn btn-outline-white">Mira tus estadisticas de League of Legends<i class="fa fa-book ml-2"></i></a>
+                            <a type="button" href="#stadistics" class="btn btn-outline-white w-75">Mira tus estadisticas de League of Legends<i class="fa fa-book ml-2"></i></a>
+                            <a type="button" href="/profile/edit_profile" class="btn btn-outline-white w-75">Tu perf&iacute;l est&aacute; mal? Corr&iacute;gelo aqu&iacute;<i class="fa fa-user ml-2"></i></a>
                         {% endif %}
                     </div>
                   </div>
@@ -113,6 +114,7 @@
                             <p> Nombre de Invocador: {{ lol_profile.nickname }} </p>
                             <p> Liga: {{ lol_profile.league }} </p>
                             <p> Division: {{ lol_profile.division }} </p>
+                            <a type="button" href="/profile/edit_lol_profile" class="btn btn-outline-white">&Eacute;sta no es tu cuenta? Corr&iacute;gela aqu&iacute;<i class="fa fa-user ml-2"></i></a>
                         </ul>
 
 

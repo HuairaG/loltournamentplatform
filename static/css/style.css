@@ -15,7 +15,28 @@ body,
 
 .profile {
     background: url("http://www.lol-wallpapers.com/wp-content/uploads/2017/02/Blood-Moon-Talon-Splash-Art-HD-4k-6k-Wallpaper-Background-Official-Art-Artwork-League-of-Legends-lol-2.jpg")no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
 
+.edit_profile{
+    background: url("http://i.imgur.com/ZyHKsyG.gif") no-repeat center center fixed;
+    height: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.edit_profile_lol {
+    background: url("https://pre00.deviantart.net/792b/th/pre/f/2018/025/a/3/northern_front_swain_by_spookzs-dc154xq.png") no-repeat center center fixed;
+    height: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 li.dropdown:last-child .dropdown-menu {
