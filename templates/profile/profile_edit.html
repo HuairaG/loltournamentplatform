@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="intro edit_profile" >
+
+    <div class="mask rgba-black-strong">
+
+        <div class="cover container-fluid d-flex align-items-center justify-content-center h-100" >
+
+            <div class="container w-60 p-3" >
+                <h3 class="display-3 font-weight-bold white-text">Actualiza tu perf&iacute;l</h3>
+                <p class="white-text"> Completa el formulario para modificar tus datos personales </p>
+                <form action="{% url 'api:profile_edit' %}" method="post" role="form" autocomplete="off" enctype="multipart/form-data">
+                    {% csrf_token %}
+
+                        <input type="text" name="name" id="name" tabindex="1" class="form-control mb-4" placeholder="Nombre" required="required"  value="">
+
+                        <input type="text" name="last_name" id="last_name" tabindex="1" class="form-control mb-4" placeholder="Apellido" required="required"  value="">
+
+                        <input type="number" min="0" name="dni" id="dni" tabindex="1" class="form-control mb-4" placeholder="DNI" required="required"  value="">
+
+                        <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroupFileAddon01">imagen de perfil</span>
+                          </div>
+                          <div class="custom-file">
+                            <input type="file" name="picture" id="picture" class="custom-file-input" id="inputGroupFile01" required="required" accept="image/png, image/jpeg" value="" aria-describedby="inputGroupFileAddon01">
+                            <label class="custom-file-label" for="inputGroupFile01">Elige la imagen</label>
+                          </div>
+                        </div>
+                        <input type="submit" name="profile-submit" id="profile-submit" tabindex="4" class=" btn btn-info btn-sm" value="Actualizar perfil">
+                </form>
+              </div>
+
+        </div>
+
+    </div>
+
+</div>
+</div>
+
+
+{% endblock %}

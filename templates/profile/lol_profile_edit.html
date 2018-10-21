@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="intro edit_profile_lol" >
+
+    <div class="mask rgba-black-strong">
+
+        <div class="cover container-fluid d-flex align-items-center justify-content-center h-100" >
+
+            <div class="container w-60 p-3">
+                <h3 class="display-3 font-weight-bold white-text">Actualiza tu perf&iacute;l</h3>
+                <p class="white-text"> Usa este formulario si tu nombre de invocador es incorrecto.</p>
+                <form action="{% url 'api:lol_profile_edit' %}" method="post" role="form" autocomplete="off" enctype="multipart/form-data">
+                    {% csrf_token %}
+
+                    <!-- Grid row -->
+                       <div class="form-row align-items-center">
+                           <!-- Grid column -->
+                            <div class="col-auto">
+                               <!-- Default input -->
+                               <label class="sr-only" for="inlineFormInput">Name</label>
+                               <input type="text" class="form-control mb-2" id="nickname" name="nickname" placeholder="Nombre de invocador">
+                            </div>
+                            <!-- Grid column -->
+                            <div class="col-auto">
+                                <button type="submit" class="btn btn-primary btn-md mt-0">Actualizar</button>
+                            </div>
+                        </div>
+                    <!-- Grid row -->
+
+                </form>
+              </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+{% endblock %}
