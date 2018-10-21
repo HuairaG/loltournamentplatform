@@ -10,7 +10,7 @@
             <div class="container w-60 p-3" >
                 <h3 class="display-3 font-weight-bold white-text">Actualiza tu perf&iacute;l</h3>
                 <p class="white-text"> Completa el formulario para modificar tus datos personales </p>
-                <form action="{% url 'api:profile' %}" method="post" role="form" autocomplete="off" enctype="multipart/form-data">
+                <form action="{% url 'api:profile_edit' %}" method="post" role="form" autocomplete="off" enctype="multipart/form-data">
                     {% csrf_token %}
 
                         <input type="text" name="name" id="name" tabindex="1" class="form-control mb-4" placeholder="Nombre" required="required"  value="">

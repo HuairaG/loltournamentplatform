@@ -10,7 +10,7 @@
             <div class="container w-60 p-3">
                 <h3 class="display-3 font-weight-bold white-text">Actualiza tu perf&iacute;l</h3>
                 <p class="white-text"> Usa este formulario si tu nombre de invocador es incorrecto.</p>
-                <form action="{% url 'api:profile' %}" method="post" role="form" autocomplete="off" enctype="multipart/form-data">
+                <form action="{% url 'api:lol_profile_edit' %}" method="post" role="form" autocomplete="off" enctype="multipart/form-data">
                     {% csrf_token %}
 
                     <!-- Grid row -->

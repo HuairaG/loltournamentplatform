@@ -12,4 +12,4 @@ QUEUE = {
     'solo': 'RANKED_SOLO_5x5',
 }
 
-KEY = 'RGAPI-a692ac47-c373-49db-8d8a-b7375086d817'
+KEY = 'RGAPI-e9834db8-9108-4d55-ba1c-0ffbff6d6930'
