@@ -1,0 +1,21 @@
+{% load static %}
+{% load staticfiles %}
+{% block content %}
+<div class="intro editor" >
+
+    <div class="mask rgba-black-strong">
+
+        <div class="cover container-fluid d-flex align-items-center justify-content-center h-100" >
+            <div class="container w-60 p-3">
+    {{ article_form.media }}
+    <div class="row form-error">
+        <div class="column" id="content">
+            <form  method="post" action='' enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ article_form.as_p  }}
+                <input class="button" type="submit" value="Save">
+            </form>
+        </div>
+    </div>
+</div></div></div></div>
+{% endblock %}
