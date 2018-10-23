@@ -11,6 +11,9 @@ class LolProfile(models.Model):
     division = models.CharField(max_length=48, default='')
     active = models.BooleanField(default=True)
 
+    def __str__(self):
+        return self.user.username + self.league + self.division + str(self.active)
+
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=80)
@@ -21,3 +24,6 @@ class Profile(models.Model):
                 null=True,
                 blank=True,
     )
+
+    def __str__(self):
+        return self.user.username

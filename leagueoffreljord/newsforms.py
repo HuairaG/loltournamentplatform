@@ -15,4 +15,15 @@ class ArticleForm(forms.ModelForm):
 
     class Meta:
         model = Article
+        exclude = ('author', 'created_at', 'last_modified',)
         fields = '__all__'
+
+    def __init__(self, *args, **kwargs):
+        super(ArticleForm, self).__init__(*args, **kwargs)
+
+    def clean(self):
+        cleaned_data = super(ArticleForm, self).clean()
+        return cleaned_data
+
+    def save(self):
+        cleaned_data = super(ArticleForm, self).save()

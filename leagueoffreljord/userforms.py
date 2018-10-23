@@ -36,7 +36,7 @@ class ProfileForm(forms.ModelForm):
         return cleaned_data
 
     def save(self):
-        cleaned_data = super(ProfileForm, self).clean()
+        cleaned_data = super(ProfileForm, self).save()
 
 class LolProfileForm(forms.ModelForm):
 
@@ -53,4 +53,4 @@ class LolProfileForm(forms.ModelForm):
         return cleaned_data
 
     def save(self):
-        cleaned_data = super(LolProfileForm, self).clean()
+        cleaned_data = super(LolProfileForm, self).save()
