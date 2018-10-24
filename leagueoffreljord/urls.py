@@ -11,6 +11,6 @@ urlpatterns = [
     path('profile/edit', userviews.ProfileUpdateView.as_view(), name="profile_edit"),
     path('profile/lol/edit', userviews.LolProfileUpdateView.as_view(), name="lol_profile_edit"),
     path('admin/article/new', newsviews.ArticleView.as_view(), name="article_create"),
-    #path('admin/article/edit', newsviews.ArticleUpdateView.as_view(), name="article_edit"),
+    path('admin/article/edit/<int:pk>', newsviews.ArticleUpdateView.as_view(), name="article_edit"),
     path('admin/article/list', newsviews.ArticleListView.as_view(), name="article_list"),
 ]

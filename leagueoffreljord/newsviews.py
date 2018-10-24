@@ -43,13 +43,18 @@ class ArticleView(View):
         return redirect('api:profile')
 
 class ArticleListView(ListView):
-    context_object_name = 'CONTEXT_OBJECT_NAME'
     model = Article
     page_kwarg = 'page'
     paginate_by = 30
+    ordering = 'last_modified'
     template_name = 'news/admin/listArticles.html'
 
     def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['now'] = timezone.now()
-        return context
+            context = super().get_context_data(**kwargs)
+            context['now'] = timezone.now()
+            return context
+
+class ArticleUpdateView(UpdateView):
+    model = Article
+    fields = ('title', 'content', 'draft')
+    template_name = 'news/admin/updateArticle.html'
