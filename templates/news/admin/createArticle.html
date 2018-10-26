@@ -1,21 +1,28 @@
+{% extends "base.html" %}
 {% load static %}
 {% load staticfiles %}
 {% block content %}
-<div class="intro editor" >
+<header>
+    <link href="{% static 'css/style_editor.css' %}" rel="stylesheet">
+    <script type="text/javascript" src="/static/admin/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/admin/js/jquery.init.js"></script>
+</header>
+<body>
+    <div class="container editor" >
+        <p class = "h1 mb-4 white-text" > Crear Publicaci&oacute;n </p>
 
-    <div class="mask rgba-black-strong">
+        {{ article_form.media }}
+        <form class="white-text" method="post" action='' enctype="multipart/form-data">
+            {% csrf_token %}
 
-        <div class="cover container-fluid d-flex align-items-center justify-content-center h-100" >
-            <div class="container w-60 p-3">
-    {{ article_form.media }}
-    <div class="row form-error">
-        <div class="column" id="content">
-            <form  method="post" action='' enctype="multipart/form-data">
-                {% csrf_token %}
-                {{ article_form.as_p  }}
-                <input class="button" type="submit" value="Save">
-            </form>
-        </div>
+            {{ article_form.as_p  }}
+
+
+            <input class="btn btn-success" type="submit" value="Crear publicaci&oacute;n">
+        </form>
     </div>
-</div></div></div></div>
+</body>
+
+
+
 {% endblock %}
